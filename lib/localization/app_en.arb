@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "appName": "NovaPDF",
+  "homeTitle": "Home",
+  "readerTitle": "Reader",
+  "recentFilesTitle": "Recent files",
+  "favoritesTitle": "Favorites",
+  "settingsTitle": "Settings",
+  "openPdf": "Open PDF",
+  "noRecentFiles": "No recent files yet",
+  "noFavorites": "No favorites yet",
+  "emptyStateHint": "Open a document to begin building your library."
+}

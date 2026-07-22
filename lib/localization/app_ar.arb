@@ -1,0 +1,13 @@
+{
+  "@@locale": "ar",
+  "appName": "نوفا PDF",
+  "homeTitle": "الرئيسية",
+  "readerTitle": "القارئ",
+  "recentFilesTitle": "الملفات الحديثة",
+  "favoritesTitle": "المفضلة",
+  "settingsTitle": "الإعدادات",
+  "openPdf": "فتح ملف PDF",
+  "noRecentFiles": "لا توجد ملفات حديثة بعد",
+  "noFavorites": "لا توجد عناصر مفضلة بعد",
+  "emptyStateHint": "افتح مستنداً لبدء إنشاء مكتبتك."
+}
