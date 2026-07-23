@@ -9,6 +9,8 @@ class RecentFilesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     return Scaffold(
+      appBar: AppBar(title: Text(l10n.recentFilesTitle)),
+      body: Center(child: Text(l10n.recentFilesTitle)),
       appBar: AppBar(title: Text(l10n.recentFilesTitle
 favoritesTitle)),
       body: Center(child: Text(l10n.recentFilesTitle

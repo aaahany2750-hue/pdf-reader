@@ -9,5 +9,16 @@
   "openPdf": "Open PDF",
   "noRecentFiles": "No recent files yet",
   "noFavorites": "No favorites yet",
+  "emptyStateHint": "Open a document to begin building your library.",
+  "readerEmptyTitle": "No PDF open",
+  "readerEmptyMessage": "Choose a PDF from device storage to start reading.",
+  "readerOpenErrorTitle": "Unable to open PDF",
+  "readerChooseAnotherPdf": "Choose another PDF",
+  "readerUnknownError": "Unknown reader error",
+  "readerJumpToPage": "Jump to page",
+  "readerCancel": "Cancel",
+  "readerGo": "Go",
+  "readerPage": "Page",
+  "readerPageOf": "Page {currentPage} of {pageCount}"
   "emptyStateHint": "Open a document to begin building your library."
 }

@@ -9,5 +9,16 @@
   "openPdf": "فتح ملف PDF",
   "noRecentFiles": "لا توجد ملفات حديثة بعد",
   "noFavorites": "لا توجد عناصر مفضلة بعد",
+  "emptyStateHint": "افتح مستنداً لبدء إنشاء مكتبتك.",
+  "readerEmptyTitle": "لا يوجد ملف PDF مفتوح",
+  "readerEmptyMessage": "اختر ملف PDF من مساحة تخزين الجهاز لبدء القراءة.",
+  "readerOpenErrorTitle": "تعذر فتح ملف PDF",
+  "readerChooseAnotherPdf": "اختر ملف PDF آخر",
+  "readerUnknownError": "خطأ غير معروف في القارئ",
+  "readerJumpToPage": "الانتقال إلى صفحة",
+  "readerCancel": "إلغاء",
+  "readerGo": "انتقال",
+  "readerPage": "صفحة",
+  "readerPageOf": "صفحة {currentPage} من {pageCount}"
   "emptyStateHint": "افتح مستنداً لبدء إنشاء مكتبتك."
 }

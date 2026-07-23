@@ -22,6 +22,8 @@ dependencies:
   drift_flutter: ^0.2.0
   shared_preferences: ^2.2.3
   logger: ^2.4.0
+  pdfrx: ^2.4.7
+  file_picker: ^11.0.2
   intl: any
 
 dev_dependencies:

@@ -8,6 +8,7 @@ NovaPDF is a production-oriented Flutter foundation for an Android-first PDF app
 - Material 3 light/dark themes with Android dynamic color support.
 - Riverpod dependency injection and state management.
 - GoRouter navigation for Home, Reader, Recent Files, Favorites, and Settings.
+- PDF rendering foundation powered by pdfrx/PDFium and native file picking.
 - Drift database schema for recent files, favorites, reading history, bookmarks, and app settings.
 - SharedPreferences service wrapper.
 - English and Arabic localization with RTL support through Flutter localization delegates.
@@ -49,4 +50,5 @@ flutter build apk --debug
 
 ## Notes
 
+PDF rendering is limited to opening, viewing, zooming, panning, vertical scrolling, page jumping, and restoring the last page. Editing, OCR, AI, annotations, conversion, and cloud sync remain out of scope.
 No PDF reading, editing, conversion, cloud, or AI functionality is implemented in Phase 1.

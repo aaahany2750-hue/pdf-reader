@@ -24,6 +24,16 @@ abstract class AppLocalizations {
   String get noRecentFiles;
   String get noFavorites;
   String get emptyStateHint;
+  String get readerEmptyTitle;
+  String get readerEmptyMessage;
+  String get readerOpenErrorTitle;
+  String get readerChooseAnotherPdf;
+  String get readerUnknownError;
+  String get readerJumpToPage;
+  String get readerCancel;
+  String get readerGo;
+  String get readerPage;
+  String readerPageOf(Object currentPage, Object pageCount);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
