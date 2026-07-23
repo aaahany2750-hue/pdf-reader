@@ -20,6 +20,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override String get readerJumpToPage => 'Jump to page';
   @override String get readerCancel => 'Cancel';
   @override String get readerGo => 'Go';
+  @override String get readerSearch => 'Search';
   @override String get readerPage => 'Page';
   @override String readerPageOf(Object currentPage, Object pageCount) => 'Page $currentPage of $pageCount';
 }

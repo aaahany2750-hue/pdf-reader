@@ -1,5 +1,6 @@
 import '../../../../services/preferences/preferences_service.dart';
 
+/// Persists lightweight reader values that must survive app restarts.
 class ReaderPreferencesDataSource {
   const ReaderPreferencesDataSource(this._preferences);
 

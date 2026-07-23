@@ -20,6 +20,7 @@ class AppLocalizationsAr extends AppLocalizations {
   @override String get readerJumpToPage => 'الانتقال إلى صفحة';
   @override String get readerCancel => 'إلغاء';
   @override String get readerGo => 'انتقال';
+  @override String get readerSearch => 'بحث';
   @override String get readerPage => 'صفحة';
   @override String readerPageOf(Object currentPage, Object pageCount) => 'صفحة $currentPage من $pageCount';
 }

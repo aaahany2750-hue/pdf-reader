@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../localization/generated/app_localizations.dart';
 
+/// Empty reader view shown before a PDF document is selected.
 class ReaderEmptyState extends StatelessWidget {
   const ReaderEmptyState({required this.onOpenPdf, super.key});
 

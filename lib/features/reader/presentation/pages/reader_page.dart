@@ -9,6 +9,7 @@ import '../widgets/reader_empty_state.dart';
 import '../widgets/reader_error_state.dart';
 import '../widgets/reader_toolbar.dart';
 
+/// Main PDF reader screen that renders documents and exposes reader controls.
 class ReaderPage extends ConsumerStatefulWidget {
   const ReaderPage({super.key});
 
@@ -40,6 +41,11 @@ class _ReaderPageState extends ConsumerState<ReaderPage> {
       appBar: AppBar(
         title: Text(l10n.readerTitle),
         actions: [
+          IconButton(
+            tooltip: l10n.readerSearch,
+            onPressed: _showSearchDialog,
+            icon: const Icon(Icons.search),
+          ),
           IconButton(
             tooltip: l10n.openPdf,
             onPressed: () =>
@@ -77,6 +83,8 @@ class _ReaderPageState extends ConsumerState<ReaderPage> {
           onJumpToPage: _showJumpToPageDialog,
           onZoomOut: _zoomOut,
           onZoomIn: _zoomIn,
+          onPreviousSearchResult: _previousSearchResult,
+          onNextSearchResult: _nextSearchResult,
         ),
     };
   }
@@ -121,6 +129,57 @@ class _ReaderPageState extends ConsumerState<ReaderPage> {
     if (_pdfController.isReady) {
       await _pdfController.zoomUp();
     }
+  }
+
+  Future<void> _showSearchDialog() async {
+    final textController = TextEditingController();
+    final query = await showDialog<String>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context).readerSearch),
+        content: TextField(
+          controller: textController,
+          autofocus: true,
+          textInputAction: TextInputAction.search,
+          onSubmitted: (value) => Navigator.of(context).pop(value),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(AppLocalizations.of(context).readerCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(context).pop(textController.text),
+            child: Text(AppLocalizations.of(context).readerSearch),
+          ),
+        ],
+      ),
+    );
+    textController.dispose();
+    if (query == null || query.trim().isEmpty) {
+      return;
+    }
+    await ref.read(readerControllerProvider.notifier).search(query);
+    await _goToActiveSearchResult();
+  }
+
+  Future<void> _nextSearchResult() async {
+    ref.read(readerControllerProvider.notifier).nextSearchResult();
+    await _goToActiveSearchResult();
+  }
+
+  Future<void> _previousSearchResult() async {
+    ref.read(readerControllerProvider.notifier).previousSearchResult();
+    await _goToActiveSearchResult();
+  }
+
+  Future<void> _goToActiveSearchResult() async {
+    final current = ref.read(readerControllerProvider).valueOrNull;
+    if (current == null || current.activeSearchResultIndex < 0) {
+      return;
+    }
+    final result = current.searchResults[current.activeSearchResultIndex];
+    await _pdfController.goToPage(pageNumber: result.pageNumber);
   }
 
   Future<void> _showJumpToPageDialog() async {
@@ -169,6 +228,8 @@ class _ReaderDocumentView extends StatelessWidget {
     required this.onJumpToPage,
     required this.onZoomOut,
     required this.onZoomIn,
+    required this.onPreviousSearchResult,
+    required this.onNextSearchResult,
   });
 
   final ReaderState state;
@@ -178,6 +239,8 @@ class _ReaderDocumentView extends StatelessWidget {
   final VoidCallback onJumpToPage;
   final VoidCallback onZoomOut;
   final VoidCallback onZoomIn;
+  final VoidCallback onPreviousSearchResult;
+  final VoidCallback onNextSearchResult;
 
   @override
   Widget build(BuildContext context) {
@@ -200,6 +263,12 @@ class _ReaderDocumentView extends StatelessWidget {
           onJumpToPage: onJumpToPage,
           onZoomOut: onZoomOut,
           onZoomIn: onZoomIn,
+          searchResultCount: state.searchResults.length,
+          activeSearchResultIndex: state.activeSearchResultIndex,
+          onPreviousSearchResult: onPreviousSearchResult,
+          onNextSearchResult: onNextSearchResult,
+        ),
+      ],
         ),
       ],
 

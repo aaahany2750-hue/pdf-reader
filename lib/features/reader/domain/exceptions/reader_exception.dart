@@ -1,3 +1,4 @@
+/// Domain-specific exception used by the reader feature boundary.
 class ReaderException implements Exception {
   const ReaderException(this.message, [this.cause]);
 

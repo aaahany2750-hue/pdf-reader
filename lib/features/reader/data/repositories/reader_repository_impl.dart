@@ -5,6 +5,7 @@ import '../../domain/repositories/reader_repository.dart';
 import '../datasources/pdf_file_picker_data_source.dart';
 import '../datasources/reader_preferences_data_source.dart';
 
+/// Production reader repository coordinating file picking and page persistence.
 class ReaderRepositoryImpl implements ReaderRepository {
   const ReaderRepositoryImpl({
     required PdfFilePickerDataSource pickerDataSource,

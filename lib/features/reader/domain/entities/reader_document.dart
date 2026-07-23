@@ -1,3 +1,4 @@
+/// File-system metadata required to open and restore a PDF document.
 class ReaderDocument {
   const ReaderDocument({
     required this.path,

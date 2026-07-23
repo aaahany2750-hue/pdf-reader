@@ -3,6 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import '../../domain/entities/reader_document.dart';
 import '../../domain/exceptions/reader_exception.dart';
 
+/// Adapter around native file picking restricted to PDF documents.
 class PdfFilePickerDataSource {
   Future<ReaderDocument?> pickPdfDocument({required int initialPage}) async {
     try {

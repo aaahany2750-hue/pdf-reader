@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../localization/generated/app_localizations.dart';
 
+/// Error view used when a document cannot be opened or rendered.
 class ReaderErrorState extends StatelessWidget {
   const ReaderErrorState({required this.message, required this.onRetry, super.key});
 

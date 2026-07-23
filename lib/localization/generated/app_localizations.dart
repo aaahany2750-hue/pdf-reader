@@ -33,6 +33,7 @@ abstract class AppLocalizations {
   String get readerCancel;
   String get readerGo;
   String get readerPage;
+  String get readerSearch;
   String readerPageOf(Object currentPage, Object pageCount);
 }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../localization/generated/app_localizations.dart';
 
+/// Bottom reader control bar for zoom, page, and search navigation.
 class ReaderToolbar extends StatelessWidget {
   const ReaderToolbar({
     required this.currentPage,
@@ -11,6 +12,10 @@ class ReaderToolbar extends StatelessWidget {
     required this.onJumpToPage,
     required this.onZoomOut,
     required this.onZoomIn,
+    required this.searchResultCount,
+    required this.activeSearchResultIndex,
+    required this.onPreviousSearchResult,
+    required this.onNextSearchResult,
     super.key,
   });
 
@@ -21,6 +26,10 @@ class ReaderToolbar extends StatelessWidget {
   final VoidCallback onJumpToPage;
   final VoidCallback onZoomOut;
   final VoidCallback onZoomIn;
+  final int searchResultCount;
+  final int activeSearchResultIndex;
+  final VoidCallback onPreviousSearchResult;
+  final VoidCallback onNextSearchResult;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +49,17 @@ class ReaderToolbar extends StatelessWidget {
             children: [
               IconButton(onPressed: onZoomOut, icon: const Icon(Icons.zoom_out)),
               IconButton(onPressed: onZoomIn, icon: const Icon(Icons.zoom_in)),
+              if (searchResultCount > 0) ...[
+                IconButton(
+                  onPressed: onPreviousSearchResult,
+                  icon: const Icon(Icons.keyboard_arrow_up),
+                ),
+                Text('${activeSearchResultIndex + 1}/$searchResultCount'),
+                IconButton(
+                  onPressed: onNextSearchResult,
+                  icon: const Icon(Icons.keyboard_arrow_down),
+                ),
+              ],
               const Spacer(),
               IconButton(
                 onPressed: currentPage > 1 ? onPreviousPage : null,
