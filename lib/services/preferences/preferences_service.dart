@@ -12,4 +12,5 @@ class PreferencesService {
   int? readInt(String key) => _preferences.getInt(key);
   Future<bool> writeString(String key, String value) => _preferences.setString(key, value);
   Future<bool> writeInt(String key, int value) => _preferences.setInt(key, value);
+  Future<bool> writeString(String key, String value) => _preferences.setString(key, value);
 }

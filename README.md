@@ -51,3 +51,4 @@ flutter build apk --debug
 ## Notes
 
 PDF rendering is limited to opening, viewing, zooming, panning, vertical scrolling, page jumping, and restoring the last page. Editing, OCR, AI, annotations, conversion, and cloud sync remain out of scope.
+No PDF reading, editing, conversion, cloud, or AI functionality is implemented in Phase 1.
