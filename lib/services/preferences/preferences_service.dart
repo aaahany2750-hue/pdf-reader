@@ -20,4 +20,7 @@ class PreferencesService {
   Future<bool> writeBool(String key, bool value) => _preferences.setBool(key, value);
   Future<bool> writeStringList(String key, List<String> value) =>
       _preferences.setStringList(key, value);
+  Future<bool> writeString(String key, String value) => _preferences.setString(key, value);
+  Future<bool> writeInt(String key, int value) => _preferences.setInt(key, value);
+  Future<bool> writeString(String key, String value) => _preferences.setString(key, value);
 }

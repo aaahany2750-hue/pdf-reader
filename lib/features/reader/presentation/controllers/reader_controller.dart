@@ -35,6 +35,14 @@ final pdfPageCacheProvider = Provider<PdfPageCache<Object>>((ref) {
 
 final readerRepositoryProvider = FutureProvider<ReaderRepository>((ref) async {
   final preferences = await ref.watch(readerPreferencesProvider.future);
+import '../../data/datasources/pdf_file_picker_data_source.dart';
+import '../../data/datasources/reader_preferences_data_source.dart';
+import '../../data/repositories/reader_repository_impl.dart';
+import '../../domain/repositories/reader_repository.dart';
+import 'reader_state.dart';
+
+final readerRepositoryProvider = FutureProvider<ReaderRepository>((ref) async {
+  final preferences = await PreferencesService.load();
   return ReaderRepositoryImpl(
     pickerDataSource: PdfFilePickerDataSource(),
     preferencesDataSource: ReaderPreferencesDataSource(preferences),
@@ -65,6 +73,9 @@ final readerControllerProvider =
     AsyncNotifierProvider<ReaderController, ReaderState>(ReaderController.new);
 
 /// Riverpod-backed reader view model that coordinates repositories and session state.
+final readerControllerProvider =
+    AsyncNotifierProvider<ReaderController, ReaderState>(ReaderController.new);
+
 class ReaderController extends AsyncNotifier<ReaderState> {
   @override
   Future<ReaderState> build() async => const ReaderState.empty();
@@ -93,6 +104,10 @@ class ReaderController extends AsyncNotifier<ReaderState> {
           bookmarks: await _loadBookmarks(document.path),
           currentPage: document.initialPage,
           pageCount: document.initialPage,
+      state = AsyncData(
+        ReaderState.ready(
+          document: document,
+          currentPage: document.initialPage,
         ),
       );
     } catch (error, stackTrace) {
@@ -117,6 +132,8 @@ class ReaderController extends AsyncNotifier<ReaderState> {
       current.copyWith(
         session: session,
         statistics: statistics,
+    state = AsyncData(
+      current.copyWith(
         currentPage: pageNumber,
         pageCount: pageCount ?? current.pageCount,
       ),

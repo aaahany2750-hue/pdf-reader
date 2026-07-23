@@ -13,6 +13,14 @@ class RecentFiles extends Table {
   DateTimeColumn get lastOpenedAt => dateTime()();
   TextColumn get thumbnailPlaceholder => text().nullable()();
   BoolColumn get isFavorite => boolean().withDefault(const Constant(false))();
+/// Phase 1 intentionally defines schema only. Data access objects and feature
+/// repositories will be added when product capabilities are implemented.
+class RecentFiles extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get uri => text().unique()();
+  TextColumn get displayName => text()();
+  IntColumn get fileSize => integer().nullable()();
+  DateTimeColumn get openedAt => dateTime()();
 }
 
 class Favorites extends Table {
@@ -65,3 +73,4 @@ class AppSettings extends Table {
 }
 
 const novaPdfSchemaVersion = 3;
+const novaPdfSchemaVersion = 1;

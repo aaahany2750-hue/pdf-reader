@@ -21,4 +21,6 @@
   "readerPage": "Page",
   "readerPageOf": "Page {currentPage} of {pageCount}",
   "readerSearch": "Search"
+  "readerPageOf": "Page {currentPage} of {pageCount}"
+  "emptyStateHint": "Open a document to begin building your library."
 }

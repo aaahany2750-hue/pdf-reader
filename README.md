@@ -70,3 +70,4 @@ Phase 3 introduces the advanced reader core without adding OCR, AI, editing, ann
 - Search indexing primitives for incremental full-text search, search history, and result navigation.
 - Bookmark and recent-file repositories that can be swapped to generated Drift DAOs without changing presentation code.
 - Drift schema definitions for bookmarks, recents, search history, and reader statistics.
+No PDF reading, editing, conversion, cloud, or AI functionality is implemented in Phase 1.

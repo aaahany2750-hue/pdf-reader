@@ -21,4 +21,6 @@
   "readerPage": "صفحة",
   "readerPageOf": "صفحة {currentPage} من {pageCount}",
   "readerSearch": "بحث"
+  "readerPageOf": "صفحة {currentPage} من {pageCount}"
+  "emptyStateHint": "افتح مستنداً لبدء إنشاء مكتبتك."
 }

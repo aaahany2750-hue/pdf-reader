@@ -11,6 +11,10 @@ class RecentFilesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(l10n.recentFilesTitle)),
       body: Center(child: Text(l10n.recentFilesTitle)),
+      appBar: AppBar(title: Text(l10n.recentFilesTitle
+favoritesTitle)),
+      body: Center(child: Text(l10n.recentFilesTitle
+favoritesTitle)),
     );
   }
 }

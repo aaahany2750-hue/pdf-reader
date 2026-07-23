@@ -8,6 +8,10 @@ import '../../domain/entities/search_result.dart';
 enum ReaderStatus { empty, loading, ready, error }
 
 /// Immutable view model consumed by Reader widgets.
+import '../../domain/entities/reader_document.dart';
+
+enum ReaderStatus { empty, loading, ready, error }
+
 class ReaderState {
   const ReaderState({
     required this.status,
